@@ -1,0 +1,31 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+float traiangleArea(float a,float b,float c){
+    if(a<0|| b<0 ||c<0 ||(a+b<=c) ||(a+b<=c)||(b+a<=a)){
+        cout<<"Not a valiable Triangle"<<endl;
+        return 0;
+    }
+    float s=(a+b+c)/2;
+    return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+void test(int expected, int actual, const char* testName){
+    if(expected ==actual){
+        printf("\nPASSED %s",testName);
+    }
+    else{
+        printf("\nFALID %s ",testName);
+        printf("\n         expected :%d actual: %d",expected,actual);
+    }
+}
+int main()
+{
+    float a=3.0;
+    float b=4.0;
+    float c=5.0;
+     cout<<"area is :"<<traiangleArea(a,b,c)<<endl;
+    test(6.0,traiangleArea(3.0,4.0,5.0),"regular test");
+    test(3.0,traiangleArea(2.0,4.0,5.0),"regular test");
+    test(5.0,traiangleArea(10.0,6.0,8.0),"unregular test");
+    return 0;
+}
